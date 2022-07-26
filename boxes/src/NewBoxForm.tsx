@@ -3,6 +3,11 @@ import { v4 as uuid } from 'uuid';
 import BoxPropsInterface from "./interfaces";
 
 
+interface NewBoxFormPropsInterface{
+  createBox: (newBox: BoxPropsInterface) => void;
+}
+
+
 /** Form for adding box.
  *
  * Props:
@@ -14,7 +19,9 @@ import BoxPropsInterface from "./interfaces";
  * BoxList -> NewBoxForm
  */
 
-function NewBoxForm({ createBox } ) {
+// {createBox: (newBox: BoxPropsInterface) => void}
+
+function NewBoxForm({createBox}: NewBoxFormPropsInterface) {
   const [formData, setFormData] = useState({
     height: "",
     width: "",
@@ -38,43 +45,39 @@ function NewBoxForm({ createBox } ) {
   }
 
   return (
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="newBox-height">Height</label>
-            <input
-                id="newBox-height"
-                onChange={handleChange}
-                name="height"
-                value={formData.height}
-            />
-          </div>
-          <div>
-            <label htmlFor="newBox-width">Width</label>
-            <input
-                id="newBox-width"
-                onChange={handleChange}
-                name="width"
-                value={formData.width}
-            />
-          </div>
-          <div>
-            <label htmlFor="newBox-backgroundColor">Background Color</label>
-            <input
-                id="newBox-backgroundColor"
-                onChange={handleChange}
-                name="backgroundColor"
-                value={formData.backgroundColor}
-            />
-          </div>
-          <button className="NewBoxForm-addBtn">Add a new box!</button>
-        </form>
-      </div>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="newBox-height">Height</label>
+          <input
+            id="newBox-height"
+            onChange={handleChange}
+            name="height"
+            value={formData.height}
+          />
+        </div>
+        <div>
+          <label htmlFor="newBox-width">Width</label>
+          <input
+            id="newBox-width"
+            onChange={handleChange}
+            name="width"
+            value={formData.width}
+          />
+        </div>
+        <div>
+          <label htmlFor="newBox-backgroundColor">Background Color</label>
+          <input
+            id="newBox-backgroundColor"
+            onChange={handleChange}
+            name="backgroundColor"
+            value={formData.backgroundColor}
+          />
+        </div>
+        <button className="NewBoxForm-addBtn">Add a new box!</button>
+      </form>
+    </div>
   );
 }
 
 export default NewBoxForm;
-
-
-
-// :(newBox: BoxPropsInterface) => void

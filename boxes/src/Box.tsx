@@ -16,7 +16,7 @@ interface BoxPropsWithRemoveI extends BoxPropsInterface{
  * BoxList -> Box
  */
 
-function Box({ id, width = 5, height = 5, backgroundColor, remove }: BoxPropsWithRemoveI) {
+function Box({ id, width = '5', height = '5', backgroundColor, remove }: BoxPropsWithRemoveI) {
 
   /** Remove a box. */
   function handleRemove() {
